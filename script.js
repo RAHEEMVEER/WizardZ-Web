@@ -19,8 +19,8 @@ function navEvents() {
     navBar.style = "display: none";
   });
 }
+let timeLine = gsap.timeline();
 function heroAnim() {
-  let timeLine = gsap.timeline();
   timeLine.from(".logoName", {
     y: -30,
     duration: 0.6,
@@ -55,6 +55,13 @@ function heroAnim() {
     duration: 0.6,
   });
 }
+function heroAnim2() {
+  timeLine.from(".menu-icon", {
+    y: -40,
+    duration: 0.8,
+    opacity: 0,
+  });
+}
 function brandsAnim() {
   gsap.from(".brandsLogo div", {
     y: -40,
@@ -69,6 +76,15 @@ function brandsAnim() {
     },
   });
 }
+
+function resAnim() {
+  if (window.innerWidth > 940) {
+    heroAnim();
+  } else {
+    heroAnim2();
+  }
+}
+window.addEventListener("load", resAnim);
+window.addEventListener("resize", resAnim);
 navEvents();
-heroAnim();
 brandsAnim();
