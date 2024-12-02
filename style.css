@@ -1,0 +1,940 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Poppins, sans-serif;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+/* custom scroll bar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--front-color);
+  border-radius: 5px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+/* root */
+:root {
+  --bg-color: #000;
+  --front-color: #fff;
+  --primary-color: #b9fd66;
+}
+html {
+  font-size: 100%;
+}
+body {
+  background-color: var(--bg-color);
+  overflow-x: hidden;
+}
+section {
+  padding: 0px 4%;
+}
+/* header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 70px;
+  background-color: var(--bg-color);
+}
+
+header .logoName {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+header .logoName h1 {
+  font-size: 28px;
+  font-weight: 600;
+  color: var(--front-color);
+}
+
+header .logoName i {
+  font-size: 25px;
+  animation: rotate 2.5s linear infinite;
+  color: var(--front-color);
+  cursor: pointer;
+  &:hover {
+    animation: rotate 0.1s linear infinite;
+  }
+}
+
+header nav {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+}
+
+header nav a {
+  text-decoration: none;
+  font-size: 18px;
+  color: var(--front-color);
+  padding: 8px;
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    background-color: #b9fd66;
+    transition: 0.3s all ease-in-out;
+  }
+  &:hover::after {
+    width: 100%;
+  }
+}
+header nav a:hover {
+  color: var(--primary-color);
+}
+header nav #button {
+  text-decoration: none;
+  position: relative;
+  padding: 8px 12px;
+  border: 2px solid var(--front-color);
+  font-size: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+  color: var(--bg-color);
+  z-index: 2;
+  opacity: 0;
+  transform: translateY(20px);
+  &:hover {
+    color: var(--front-color);
+  }
+}
+header nav #button::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: var(--front-color);
+  transition: 0.4s ease-in-out;
+  z-index: -1;
+}
+header nav #button:hover::after {
+  left: 100%;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+header .menu-icon {
+  display: none;
+}
+header .menu-icon i {
+  font-size: 30px;
+  color: var(--front-color);
+  font-weight: 600;
+}
+#cross {
+  display: none;
+}
+/* hero part */
+.hero {
+  min-height: 90vh;
+  max-height: max-content;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero .content-box {
+  padding: 40px 20px;
+  width: 42%;
+  & h1 {
+    color: var(--front-color);
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+  }
+  p {
+    color: var(--front-color);
+    font-size: 1.2rem;
+    line-height: 25px;
+    margin-bottom: 30px;
+  }
+  button {
+    color: var(--bg-color);
+    padding: 8px 12px;
+    font-size: 22px;
+    border-radius: 8px;
+    background-color: var(--front-color);
+    border: 2px solid var(--front-color);
+    box-shadow: 0 0 0.5rem var(--front-color);
+    transition: 0.3s ease-in-out;
+    cursor: pointer;
+    &:hover {
+      box-shadow: none;
+      background-color: var(--bg-color);
+      color: var(--front-color);
+    }
+  }
+}
+.hero .content-img {
+  width: 56%;
+  padding: 80px;
+}
+.content-img img {
+  object-fit: cover;
+  width: 100%;
+  height: auto;
+}
+/* brands part */
+.brandsLogo {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  min-height: 20vh;
+  max-height: max-content;
+  gap: 100px;
+  & .img-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+  }
+  & img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    cursor: pointer;
+  }
+}
+/* service-1 part */
+.service1 {
+  margin-top: 80px;
+  min-height: 100vh;
+  max-height: max-content;
+}
+.services-content {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+  & h1 {
+    background-color: var(--primary-color);
+    padding: 7px 12px;
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 10px;
+  }
+  p {
+    color: var(--front-color);
+    font-size: 1.2rem;
+    width: 50%;
+  }
+}
+.service1 .service-box {
+  margin-top: 80px;
+  padding: 0px 60px;
+  min-height: 80vh;
+  max-height: max-content;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.service-box .box {
+  background-color: #ffffffef;
+  border-radius: 20px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.service-box #bgblack {
+  background-color: var(--bg-color);
+  box-shadow: 0px 4px 0px var(--front-color);
+  border: 1px solid var(--front-color);
+}
+.box .content-1 {
+  width: 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  & h1 {
+    width: 100%;
+    font-size: 29px;
+    padding: 5px;
+    border-radius: 6px;
+    font-weight: 500;
+  }
+  p {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    font-size: 20px;
+  }
+  i {
+    padding: 6px;
+    border-radius: 50%;
+    font-size: 28px;
+    rotate: -40deg;
+    transition: 0.4s all ease-in-out;
+    cursor: pointer;
+    &:hover {
+      transform: rotate(400deg);
+    }
+  }
+}
+
+.box .content-2 {
+  width: 50%;
+  & img {
+    width: 90%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+.content-2 #marketing-img {
+  width: 70%;
+  margin-left: 50px;
+}
+.content-1 .whiteBg {
+  background-color: var(--front-color);
+  color: var(--bg-color);
+}
+.content-1 .white {
+  color: var(--front-color);
+}
+.content-1 .blackbg {
+  background-color: var(--bg-color);
+  color: var(--primary-color);
+}
+.content-1 .black {
+  color: var(--bg-color);
+}
+/* service-2 part */
+.service2 {
+  height: 50vh;
+  margin-top: 50px;
+  padding: 0px 120px;
+}
+.service2 .service2-box {
+  background-color: var(--front-color);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 90px;
+}
+.service2-box .service2-content {
+  width: 55%;
+  & h1 {
+    font-size: 2.5rem;
+    margin-bottom: 25px;
+    font-weight: 500;
+  }
+  p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+  }
+  button {
+    padding: 12px 15px;
+    background-color: var(--bg-color);
+    color: var(--front-color);
+    font-size: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--bg-color);
+    cursor: pointer;
+    transition: 0.4s all ease-in-out;
+    &:hover {
+      background-color: var(--front-color);
+      color: var(--bg-color);
+    }
+  }
+}
+
+.service2-box .service2-img {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  width: 45%;
+  & img {
+    width: 62%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+/* usecases part */
+.use-cases {
+  min-height: 65vh;
+  max-height: max-content;
+  margin-top: 100px;
+}
+.use-cases .usecaseContent1 {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 30px;
+  & h1 {
+    background-color: var(--primary-color);
+    padding: 8px 14px;
+    font-size: 2rem;
+    font-weight: 500;
+    border-radius: 10px;
+    text-wrap: nowrap;
+  }
+  p {
+    color: var(--front-color);
+    font-size: 1.2rem;
+    width: 50%;
+  }
+}
+.use-cases .usecaseContent2 {
+  height: 45vh;
+  margin-top: 50px;
+  padding: 0px 50px;
+}
+.usecaseContent2 .usecaseContent2-box {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-color);
+  border: 1px solid var(--front-color);
+  box-shadow: 0px 5px 0px var(--front-color);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 20px 30px;
+}
+.usecaseContent2-box .usecase {
+  padding: 20px 40px;
+  height: max-content;
+  & p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: var(--front-color);
+  }
+  h1 {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--primary-color);
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    cursor: pointer;
+    &:hover i {
+      transform: rotate(0deg);
+    }
+    i {
+      color: var(--primary-color);
+      transform: rotate(-40deg);
+      border-radius: 50%;
+      font-size: 1.8rem;
+      transition: 0.3s all ease-in-out;
+    }
+  }
+}
+.usecaseContent2-box .right {
+  border-right: 2px solid var(--primary-color);
+}
+/* breakpoints */
+@media screen and (max-width: 1309px) {
+  html {
+    font-size: 90%;
+  }
+  /* brands */
+  .brandsLogo {
+    gap: 60px;
+  }
+}
+@media screen and (max-width: 1255px) {
+  /* hero part */
+  .hero .content-box {
+    width: 48%;
+    & h1 {
+      font-size: 3.2rem;
+    }
+  }
+  .hero .content-img {
+    width: 50%;
+    padding: 0px;
+  }
+  /* service 1 */
+  .service1 .service-box {
+    padding: 0px 0px;
+    gap: 20px;
+  }
+  /* service 2 */
+  .service2 {
+    padding: 0px 50px;
+  }
+  .service2 .service2-box {
+    padding: 20px 40px;
+  }
+  /* use case */
+  .usecaseContent2 .usecaseContent2-box {
+    gap: 10px;
+    padding: 20px 20px;
+  }
+  .usecaseContent2-box .usecase {
+    padding: 20px 10px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  /* header part */
+  header {
+    padding: 20px 40px;
+  }
+  /* brnads */
+  .brandsLogo {
+    gap: 40px;
+  }
+  /* service 1 */
+  .service1 .service-box {
+    min-height: 70vh;
+  }
+  .box .content-1 {
+    & h1 {
+      font-size: 23px;
+    }
+    p {
+      gap: 15px;
+      font-size: 18px;
+    }
+    i {
+      padding: 4px;
+      font-size: 24px;
+    }
+  }
+  /* service 2 */
+  .service2 {
+    margin-top: 0px;
+  }
+  .service2-box .service2-content {
+    width: 55%;
+    & h1 {
+      font-size: 2.2rem;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+    }
+    button {
+      font-size: 19px;
+    }
+  }
+}
+@media screen and (max-width: 940px) {
+  /* header part */
+  header {
+    padding: 20px 20px;
+  }
+  header nav {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    padding: 150px 30px;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 75%;
+    gap: 25px;
+    background-color: var(--bg-color);
+    z-index: 100;
+    & a {
+      font-size: 22px;
+    }
+  }
+  header .menu-icon {
+    display: block;
+  }
+  #cross {
+    display: block;
+    font-size: 27px;
+    color: var(--front-color);
+    position: absolute;
+    top: 30px;
+    right: 30px;
+  }
+  /* hero part */
+  .hero .content-box {
+    width: 50%;
+    & h1 {
+      font-size: 2.8rem;
+    }
+  }
+  /* brnads */
+  .brandsLogo {
+    gap: 30px;
+  }
+  /* service 1 */
+  .box .content-1 {
+    & h1 {
+      font-size: 20px;
+    }
+    p {
+      gap: 10px;
+      font-size: 16px;
+    }
+    i {
+      font-size: 20px;
+    }
+  }
+  .box .content-2 {
+    & img {
+      width: 100%;
+    }
+  }
+  .services-content {
+    gap: 20px;
+    & h1 {
+      padding: 5px 10px;
+    }
+    p {
+      width: 100%;
+    }
+  }
+  /* use case */
+  .use-cases .usecaseContent2 {
+    padding: 0px 0px;
+  }
+  .use-cases .usecaseContent1 {
+    gap: 20px;
+    & h1 {
+      padding: 5px 10px;
+    }
+    p {
+      width: 100%;
+    }
+  }
+}
+@media screen and (max-width: 800px) {
+  /* hero part */
+  .hero {
+    flex-direction: column;
+  }
+  .hero .content-box {
+    width: 100%;
+    & h1 {
+      width: 80%;
+    }
+  }
+  .hero .content-img {
+    width: 70%;
+  }
+  /* brands */
+  .brandsLogo {
+    margin-top: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    & img {
+      width: 65%;
+    }
+  }
+  /* service 1 */
+  .box .content-1 {
+    & h1 {
+      font-size: 18px;
+    }
+    p {
+      gap: 10px;
+      font-size: 15px;
+    }
+    i {
+      font-size: 19px;
+    }
+  }
+  /* service 2 */
+  .service2 {
+    min-height: 50vh;
+    max-height: max-content;
+  }
+  .service2 .service2-box {
+    flex-direction: column-reverse;
+  }
+
+  .service2-box .service2-content {
+    width: 100%;
+    & h1 {
+      font-size: 2.2rem;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 19px;
+    }
+  }
+  .service2-box .service2-img {
+    justify-content: center;
+    width: 70%;
+    margin-bottom: 40px;
+  }
+  /* use case */
+  .use-cases {
+    margin-top: 300px;
+  }
+  .use-cases .usecaseContent2 {
+    height: 72vh;
+  }
+  .usecaseContent2 .usecaseContent2-box {
+    flex-direction: column;
+  }
+  .usecaseContent2-box .right {
+    border-right: none;
+    border-bottom: 2px solid var(--primary-color);
+  }
+}
+@media screen and (max-width: 720px) {
+  /* service 1 */
+  .service1 .service-box {
+    margin-top: 50px;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .box .content-1 {
+    & h1 {
+      font-size: 26px;
+    }
+    p {
+      gap: 10px;
+      font-size: 21px;
+    }
+    i {
+      font-size: 22px;
+    }
+  }
+  .emailmarketing {
+    grid-area: 3;
+  }
+  /* service 2 */
+  .service2 {
+    padding: 0px 25px;
+    margin-top: 30px;
+  }
+  /* use case */
+  .use-cases {
+    margin-top: 250px;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* header */
+  header .logoName h1 {
+    font-size: 22px;
+  }
+
+  header .logoName i {
+    font-size: 19px;
+  }
+  header .menu-icon i {
+    font-size: 25px;
+  }
+  /* brands */
+  .brandsLogo {
+    grid-template-columns: repeat(3, 1fr);
+    & img {
+      width: 85%;
+    }
+  }
+  /* service 1 */
+  .services-content {
+    gap: 10px;
+    & h1 {
+      padding: 5px 10px;
+      font-size: 1.7rem;
+    }
+    p {
+      font-size: 1rem;
+    }
+  }
+  /* use case */
+  .use-cases {
+    margin-top: 200px;
+  }
+}
+@media screen and (max-width: 490px) {
+  html {
+    font-size: 80%;
+  }
+  /* header */
+  header {
+    padding: 20px 10px;
+  }
+  header nav {
+    padding-top: 200px;
+    padding-left: 15px;
+    gap: 20px;
+    & a {
+      font-size: 20px;
+    }
+  }
+  /* section */
+  section {
+    padding: 0px 3%;
+  }
+  /* hero */
+  .hero .content-box {
+    padding: 40px 0px;
+    & h1 {
+      width: 100%;
+      font-size: 2.9rem;
+    }
+    button {
+      padding: 5px 7px;
+      font-size: 17px;
+    }
+    p {
+      font-size: 1.3rem;
+      line-height: 23px;
+      margin-bottom: 20px;
+    }
+  }
+  .hero .content-img {
+    width: 100%;
+  }
+  /* brnads */
+  .brandsLogo {
+    gap: 50px;
+    & img {
+      width: 100%;
+    }
+  }
+  /* service 1 */
+  .service1 {
+    margin-top: 40px;
+  }
+  .box .content-1 {
+    & h1 {
+      font-size: 21px;
+    }
+    p {
+      gap: 10px;
+      font-size: 18px;
+    }
+    i {
+      font-size: 21px;
+    }
+  }
+  .service1 .service-box {
+    min-height: 40vh;
+  }
+  .services-content {
+    flex-direction: column;
+    gap: 30px;
+    & h1 {
+      padding: 5px 10px;
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+  /* service 2 */
+  .service2 {
+    margin-top: 20px;
+    padding: 0px 15px;
+  }
+  .service2 .service2-box {
+    padding: 20px 15px;
+  }
+  .service2-box .service2-img {
+    width: 90%;
+  }
+  .service2-box .service2-content {
+    & h1 {
+      font-size: 1.9rem;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 16px;
+      padding: 9px 10px;
+    }
+  }
+  /* use case */
+  .use-cases .usecaseContent1 {
+    flex-direction: column;
+    gap: 30px;
+    & h1 {
+      padding: 5px 10px;
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+@media screen and (max-width: 390px) {
+  /* header */
+  header nav {
+    & a {
+      font-size: 18px;
+    }
+  }
+  header nav #button {
+    padding: 6px 10px;
+    font-size: 16px;
+  }
+  /* brnads */
+  .brandsLogo {
+    gap: 30px;
+    & img {
+      width: 100%;
+    }
+  }
+  /* service 1 */
+  .box .content-1 {
+    & h1 {
+      font-size: 18px;
+    }
+    p {
+      gap: 10px;
+      font-size: 17px;
+    }
+    i {
+      font-size: 19px;
+    }
+  }
+  /* service 2 */
+  .service2 {
+    padding: 0px 11px;
+  }
+  .service2-box .service2-img {
+    width: 90%;
+  }
+  .service2-box .service2-content {
+    & h1 {
+      font-size: 1.7rem;
+      margin-bottom: 15px;
+    }
+    p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+    button {
+      font-size: 15px;
+      padding: 8px 9px;
+    }
+  }
+  /* use case */
+
+  .use-cases {
+    margin-top: 150px;
+  }
+  .use-cases .usecaseContent2 {
+    height: 76vh;
+  }
+}
