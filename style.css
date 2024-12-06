@@ -155,6 +155,7 @@ header .menu-icon i {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  overflow: hidden;
 }
 .hero .content-box {
   padding: 40px 20px;
@@ -198,6 +199,7 @@ header .menu-icon i {
 }
 /* brands part */
 .brandsLogo {
+  overflow: hidden;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   min-height: 20vh;
@@ -214,6 +216,10 @@ header .menu-icon i {
     height: auto;
     object-fit: cover;
     cursor: pointer;
+    transition: 0.4s all ease-in-out;
+    &:hover {
+      transform: scale(1.3);
+    }
   }
 }
 /* service-1 part */
@@ -221,6 +227,7 @@ header .menu-icon i {
   margin-top: 80px;
   min-height: 100vh;
   max-height: max-content;
+  overflow: hidden;
 }
 .services-content {
   display: flex;
@@ -321,7 +328,8 @@ header .menu-icon i {
 }
 /* service-2 part */
 .service2 {
-  height: 50vh;
+  min-height: 50vh;
+  max-height: max-content;
   margin-top: 50px;
   padding: 0px 120px;
 }
@@ -359,14 +367,13 @@ header .menu-icon i {
     }
   }
 }
-
 .service2-box .service2-img {
   display: flex;
   justify-content: right;
   align-items: center;
   width: 45%;
   & img {
-    width: 62%;
+    width: 280px;
     height: auto;
     object-fit: cover;
   }
@@ -375,7 +382,7 @@ header .menu-icon i {
 .use-cases {
   min-height: 65vh;
   max-height: max-content;
-  margin-top: 100px;
+  margin-top: 80px;
 }
 .use-cases .usecaseContent1 {
   display: flex;
@@ -397,13 +404,13 @@ header .menu-icon i {
   }
 }
 .use-cases .usecaseContent2 {
-  height: 45vh;
+  min-height: 45vh;
+  max-height: max-content;
   margin-top: 50px;
   padding: 0px 50px;
 }
 .usecaseContent2 .usecaseContent2-box {
-  width: 100%;
-  height: 100%;
+  min-height: 310px;
   background-color: var(--bg-color);
   border: 1px solid var(--front-color);
   box-shadow: 0px 5px 0px var(--front-color);
@@ -413,9 +420,10 @@ header .menu-icon i {
   align-items: center;
   gap: 20px;
   padding: 20px 30px;
+  overflow: hidden;
 }
 .usecaseContent2-box .usecase {
-  padding: 20px 40px;
+  padding: 20px 20px;
   height: max-content;
   & p {
     font-size: 1.1rem;
@@ -430,6 +438,7 @@ header .menu-icon i {
     align-items: center;
     gap: 16px;
     cursor: pointer;
+    width: max-content;
     &:hover i {
       transform: rotate(0deg);
     }
@@ -538,13 +547,12 @@ header .menu-icon i {
     padding: 20px 20px;
   }
   header nav {
-    display: none;
     flex-direction: column;
     align-items: flex-start;
     position: fixed;
     padding: 150px 30px;
     top: 0;
-    right: 0;
+    right: -75%;
     height: 100vh;
     width: 75%;
     gap: 25px;
@@ -653,10 +661,6 @@ header .menu-icon i {
     }
   }
   /* service 2 */
-  .service2 {
-    min-height: 50vh;
-    max-height: max-content;
-  }
   .service2 .service2-box {
     flex-direction: column-reverse;
   }
@@ -677,13 +681,10 @@ header .menu-icon i {
   }
   .service2-box .service2-img {
     justify-content: center;
-    width: 70%;
+    width: 100%;
     margin-bottom: 40px;
   }
   /* use case */
-  .use-cases {
-    margin-top: 300px;
-  }
   .use-cases .usecaseContent2 {
     height: 72vh;
   }
@@ -721,10 +722,6 @@ header .menu-icon i {
     padding: 0px 25px;
     margin-top: 30px;
   }
-  /* use case */
-  .use-cases {
-    margin-top: 250px;
-  }
 }
 @media screen and (max-width: 600px) {
   /* header */
@@ -757,8 +754,8 @@ header .menu-icon i {
     }
   }
   /* use case */
-  .use-cases {
-    margin-top: 200px;
+  .use-cases{
+    margin-top: 60px;
   }
 }
 @media screen and (max-width: 490px) {
@@ -847,7 +844,10 @@ header .menu-icon i {
     padding: 20px 15px;
   }
   .service2-box .service2-img {
-    width: 90%;
+    width: 100%;
+    & img {
+      width: 230px;
+    }
   }
   .service2-box .service2-content {
     & h1 {
@@ -876,7 +876,6 @@ header .menu-icon i {
     }
   }
 }
-
 @media screen and (max-width: 390px) {
   /* header */
   header nav {
@@ -930,10 +929,6 @@ header .menu-icon i {
     }
   }
   /* use case */
-
-  .use-cases {
-    margin-top: 150px;
-  }
   .use-cases .usecaseContent2 {
     height: 76vh;
   }
